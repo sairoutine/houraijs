@@ -45,17 +45,10 @@ window.onload = function() {
 
 			pmd_view.addModelView(pmd_model_view);
 
-			// set position
-			__setModelsBasePosition(pmd_view.modelViews);
+			// TODO: set position
+			//__setModelsBasePosition(pmd_view.modelViews);
 
-			pmd_view.run(function(){
-				pmd_view.update();
-				pmd_view.draw();
-
-				requestAnimationFrame(function() {
-					pmd_view.run();
-				});
-			});
+			pmd_view.run();
 		});
 	});
 };
