@@ -2,8 +2,9 @@
 
 var PMD = require('./PMD');
 
-var PMDFileParser = function() {
-
+var PMDFileParser = function(buffer) {
+	this.uint8 = new Uint8Array(buffer);
+	this.offset = 0;
 };
 
 // is valid pmd file?
