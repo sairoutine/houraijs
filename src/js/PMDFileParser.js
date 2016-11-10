@@ -9,7 +9,7 @@ var PMDFileParser = function(buffer) {
 
 // is valid pmd file?
 PMDFileParser.prototype.valid = function() {
-
+	// TODO: 
 	return true;
 };
 
