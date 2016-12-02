@@ -18,21 +18,6 @@ PMDFace.FACE_STRUCTURE = {
 };
 
 /*
-PMDFace.prototype.dump = function() {
-  var str = '';
-  str += 'id: ' + this.id + '\n';
-  str += 'name: ' + this.name + '\n';
-  str += 'vertexCount: ' + this.vertexCount + '\n';
-  str += 'type: ' + this.type + '\n';
-
-  for(var i = 0; i < this.vertices.length; i++) {
-    str += this.vertices[i].dump();
-  }
-
-  return str;
-};
-
-
 PMDFace.prototype.toRight = function() {
   for(var i = 0; i < this.vertices.length; i++) {
     this.vertices[i].toRight();

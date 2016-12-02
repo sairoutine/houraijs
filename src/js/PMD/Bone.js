@@ -29,20 +29,6 @@ PMDBone.prototype.isKnee = function() {
   return this.name.indexOf('0x820xd00x820xb4') >= 0;
 };
 
-
-PMDBone.prototype.dump = function() {
-  var str = '';
-  str += 'id: '          + this.id          + '\n';
-  str += 'name: '        + this.name        + '\n';
-  str += 'parentIndex: ' + this.parentIndex + '\n';
-  str += 'tailIndex: '   + this.tailIndex   + '\n';
-  str += 'type: '        + this.type        + '\n';
-  str += 'ikIndex: '     + this.ikIndex     + '\n';
-  str += 'position: '    + this.position    + '\n';
-  return str;
-};
-
-
 PMDBone.prototype.toRight = function() {
   this.position[2] = -this.position[2];
 };

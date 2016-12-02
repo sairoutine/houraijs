@@ -12,11 +12,8 @@ PMDHeader.HEADER_STRUCTURE = {
 	comment: {type: 'char', isArray: true, size: 256}
 };
 
-
-
 PMDHeader.prototype.valid = function() {
 	return (this.magic === 'Pmd');
 };
-
 
 module.exports = PMDHeader;

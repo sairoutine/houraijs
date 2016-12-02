@@ -26,19 +26,6 @@ PMDVertex.prototype.setup = function() {
 };
 
 
-PMDVertex.prototype.dump = function() {
-  var str = '';
-  str += 'id: '          + this.id          + '\n';
-  str += 'position: '    + this.position    + '\n';
-  str += 'normal: '      + this.normal      + '\n';
-  str += 'uv: '          + this.uv          + '\n';
-  str += 'boneIndices: ' + this.boneIndices + '\n';
-  str += 'boneWeight: '  + this.boneWeight  + '\n';
-  str += 'edgeFlag: '    + this.edgeFlag    + '\n';
-  return str;
-};
-
-
 PMDVertex.prototype.toRight = function() {
   this.position[2] = -this.position[2];
   this.normal[2] = -this.normal[2];

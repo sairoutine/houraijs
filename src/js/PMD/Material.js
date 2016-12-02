@@ -77,18 +77,5 @@ PMDMaterial.prototype.hasToon = function() {
 };
 
 
-PMDMaterial.prototype.dump = function() {
-  var str = '';
-  str += 'id: '            + this.id            + '\n';
-  str += 'color: '         + this.color         + '\n';
-  str += 'specularity: '   + this.specularity   + '\n';
-  str += 'specularColor: ' + this.specularColor + '\n';
-  str += 'mirrorColor: '   + this.mirrorColor   + '\n';
-  str += 'tuneIndex: '     + this.tuneIndex     + '\n';
-  str += 'edgeFlag: '      + this.edgeFlag      + '\n';
-  str += 'vertexCount: '   + this.vertexCount   + '\n';
-  str += 'fileName: '      + this.fileName      + '\n';
-  return str;
-};
 */
 module.exports = PMDMaterial;

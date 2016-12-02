@@ -38,28 +38,6 @@ PMDRigidBody.STRUCTURE = {
 	type: {type: 'uint8'}
 };
 /*
-PMDRigidBody.prototype.dump = function() {
-  var str = '';
-  str += 'id: '          + this.id          + '\n';
-  str += 'name: '        + this.name        + '\n';
-  str += 'boneIndex: '   + this.boneIndex   + '\n';
-  str += 'groupIndex: '  + this.groupIndex  + '\n';
-  str += 'groupTarget: ' + this.groupTarget + '\n';
-  str += 'shapeType: '   + this.shapeType   + '\n';
-  str += 'width: '       + this.width       + '\n';
-  str += 'height: '      + this.height      + '\n';
-  str += 'depth: '       + this.depth       + '\n';
-  str += 'position: '    + this.position    + '\n';
-  str += 'rotation: '    + this.rotation    + '\n';
-  str += 'weight: '      + this.weight      + '\n';
-  str += 'positionDim: ' + this.positionDim + '\n';
-  str += 'rotationDim: ' + this.rotationDim + '\n';
-  str += 'recoil: '      + this.recoil      + '\n';
-  str += 'friction: '    + this.friction    + '\n';
-  str += 'type: '        + this.type        + '\n';
-  return str;
-};
-
 
 PMDRigidBody.prototype.toRight = function() {
   this.position[2] = -this.position[2];

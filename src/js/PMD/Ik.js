@@ -17,19 +17,4 @@ PMDIK.STRUCTURE = {
 	limitation: {type: 'float'},
 	childBoneIndices: {type: 'uint16', isArray: true, size: 'chainLength'}
 };
-
-
-/*
-PMDIK.prototype.dump = function() {
-  var str = '';
-  str += 'id: '               + this.id               + '\n';
-  str += 'index: '            + this.index            + '\n';
-  str += 'targetBoneIndex: '  + this.targetBoneIndex  + '\n';
-  str += 'chainLength: '      + this.chainLength      + '\n';
-  str += 'iteration: '        + this.iteration        + '\n';
-  str += 'limitation: '       + this.limitation       + '\n';
-  str += 'childBoneIndices: ' + this.childBoneIndices + '\n';
-  return str;
-};
-*/
 module.exports = PMDIK;
