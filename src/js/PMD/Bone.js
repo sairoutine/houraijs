@@ -11,7 +11,7 @@ function PMDBone(id) {
 	this.motionIndex = null; // used by VMD
 }
 
-PMDBone.BONE_STRUCTURE = {
+PMDBone.STRUCTURE = {
 	name: {type: 'strings', isArray: true, size: 20},
 	parentIndex: {type: 'uint16'},
 	tailIndex: {type: 'uint16'},
