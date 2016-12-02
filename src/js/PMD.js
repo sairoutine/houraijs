@@ -17,7 +17,7 @@ var PMD = function() {
 	this.jointCount = null;
 
 	this.vertices = [];
-	this.vertexIndices = []
+	this.vertexIndices = [];
 	this.materials = [];
 	this.bones = [];
 	this.iks = [];
