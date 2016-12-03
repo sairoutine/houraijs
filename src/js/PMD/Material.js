@@ -22,32 +22,44 @@ PMDMaterial.STRUCTURE = {
 	fileName: {type: 'char', isArray: true, size: 20}
 };
 
+PMDMaterial.prototype.hasSphereTexture = function() {
+	if(this.fileName.lastIndexOf('.sph') >= 0 || this.fileName.lastIndexOf('.spa') >= 0) {
+		return true;
+	}
+	return false;
+};
+
+PMDMaterial.prototype.getSphereMapFileName = function() {
+	var filename = this.fileName;
+	var index;
+	if((index = filename.lastIndexOf('*')) >= 0) {
+		filename = filename.slice(index+1);
+	}
+	if((index = filename.lastIndexOf('+')) >= 0) {
+		filename = filename.slice(index+1);
+	}
+	return filename;
+};
+
+PMDMaterial.prototype.getImageFileName = function() {
+	var filename = this.fileName;
+	// NOTE: many browser can't show tga file, so convert tga ext to png ext
+	filename = filename.replace('.tga', '.png');
+
+	var index = filename.lastIndexOf('*');
+	if(index >= 0) {
+		// ignore file name of sphere map
+		filename = filename.substring(0, index);
+	}
+
+	return filename;
+};
+
+
+
 
 
 /*
- // TODO: temporal
-PMDMaterial.prototype.convertedFileName = function() {
-  var filename = this.fileName.replace('.tga', '.png');
-
-  // TODO: ignore sphere map so far
-  var index;
-  if((index = filename.lastIndexOf('*')) >= 0) {
-    filename = filename.substring(0, index);
-  }
-
-  return filename;
-};
-
-
-PMDMaterial.prototype.hasSphereTexture = function() {
-  if(this.fileName.lastIndexOf('.sph') >= 0 ||
-     this.fileName.lastIndexOf('.spa') >= 0)
-    return true;
-
-  return false;
-};
-
-
 PMDMaterial.prototype.isSphereMapAddition = function() {
   var filename = this.fileName;
 
@@ -57,19 +69,6 @@ PMDMaterial.prototype.isSphereMapAddition = function() {
   return false;
 };
 
-
- // TODO: temporal
-PMDMaterial.prototype.sphereMapFileName = function() {
-  var filename = this.fileName;
-  var index;
-  if((index = filename.lastIndexOf('*')) >= 0) {
-    filename = filename.slice(index+1);
-  }
-  if((index = filename.lastIndexOf('+')) >= 0) {
-    filename = filename.slice(index+1);
-  }
-  return filename;
-};
 
 
 PMDMaterial.prototype.hasToon = function() {
