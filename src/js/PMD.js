@@ -1,5 +1,7 @@
 'use strict';
 
+var PMDImageFileLoader = require('./PMDImageFileLoader');
+
 var PMD = function() {
 	this.header = null;
 	this.englishHeader = null;
@@ -35,6 +37,7 @@ var PMD = function() {
 	this.bonesHash = {};
 	this.facesHash = {};
 
+	// set by PMDImageFileLoader
 	this.images = [];
 	this.toonImages = [];
 	this.sphereImages = [];
@@ -51,15 +54,16 @@ PMD.prototype.setup = function () {
 };
 
 PMD.prototype.loadImages = function (image_base_url, callback) {
-
-	return callback();
-};
-
-PMD.prototype.dump = function () {
-	console.log(this);
+	var loader = new PMDImageFileLoader(this, image_base_url);
+	return loader.load(callback);
 };
 
 
+PMD.prototype.resetImages = function () {
+	this.images.length = 0;
+	this.toonImages.length = 0;
+	this.sphereImages.length = 0;
+};
 
 
 module.exports = PMD;
