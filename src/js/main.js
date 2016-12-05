@@ -32,13 +32,12 @@ window.onload = function() {
 
 		var pmd = pfp.parse();
 
-		pmd.dump(); // TODO: DEBUG
-
 		pmd.setup();
 
 		var image_base_url = model_url.substring(0, model_url.lastIndexOf('/'));
 
 		pmd.loadImages(image_base_url, function(){
+			// WebGL layer
 			var layer = new Layer(canvas);
 
 			var pmd_view = new PMDView(layer);
@@ -52,6 +51,8 @@ window.onload = function() {
 			//__setModelsBasePosition(pmd_view.modelViews);
 
 			pmd_view.run();
+
+			console.log(pmd);
 		});
 	});
 };

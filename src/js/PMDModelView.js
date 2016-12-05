@@ -1,6 +1,9 @@
 'use strict';
 
-var PMDModelView = function() {
+var PMDModelView = function(layer, pmd, pmd_view) {
+	this.layer = layer;
+	this.pmd = pmd;
+	this.view = pmd_view;
 
 };
 

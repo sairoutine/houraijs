@@ -1,11 +1,14 @@
 'use strict';
 
-var PMDView = function() {
+var PMDView = function(layer) {
+	this.layer = layer;
 	this.requestID = null;
+
+	this.modelViews = [];
 };
 
-PMDView.prototype.addModelView = function () {
-
+PMDView.prototype.addModelView = function (model_view) {
+	this.modelViews.push(model_view);
 };
 
 PMDView.prototype.update = function () {

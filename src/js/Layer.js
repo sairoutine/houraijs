@@ -1,8 +1,10 @@
 'use strict';
 
-var Class = function() {
+/* WebGL layer */
+var Layer = function(canvas) {
+	this.canvas = canvas;
 
 };
 
 
-module.exports = Class;
+module.exports = Layer;
