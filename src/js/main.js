@@ -14,7 +14,6 @@ var motion = {name: 'Sweet Magic', url: [
 var PMDFileParser = require('./PMDFileParser');
 var Layer = require('./Layer');
 var PMDView = require('./PMDView');
-var PMDModelView = require('./PMDModelView');
 
 
 window.onload = function() {
@@ -42,13 +41,7 @@ window.onload = function() {
 
 			var pmd_view = new PMDView(layer);
 
-			var pmd_model_view = new PMDModelView(layer, pmd, pmd_view);
-			pmd_model_view.setup();
-
-			pmd_view.addModelView(pmd_model_view);
-
-			// TODO: set position
-			//__setModelsBasePosition(pmd_view.modelViews);
+			pmd_view.addPMD(pmd);
 
 			pmd_view.run();
 
@@ -65,37 +58,5 @@ function _getBinary(url, callback) {
 	request.open('GET', url, true);
 	request.send(null);
 }
-
-var __setModelsBasePosition = function(pmdModelViews) {
-  switch(pmdModelViews.length) {
-    case 1:
-      pmdModelViews[0].setBasePosition(0, 0, 0);
-      break;
-    case 2:
-      pmdModelViews[0].setBasePosition(-10, 0, 0);
-      pmdModelViews[1].setBasePosition( 10, 0, 0);
-      break;
-    case 3:
-      pmdModelViews[0].setBasePosition(  0, 0,  0);
-      pmdModelViews[1].setBasePosition( 10, 0, 10);
-      pmdModelViews[2].setBasePosition(-10, 0, 10);
-      break;
-    case 4:
-      pmdModelViews[0].setBasePosition(  5, 0,  0);
-      pmdModelViews[1].setBasePosition( -5, 0,  0);
-      pmdModelViews[2].setBasePosition( 15, 0, 10);
-      pmdModelViews[3].setBasePosition(-15, 0, 10);
-      break;
-    case 5:
-      pmdModelViews[0].setBasePosition(  0, 0,  0);
-      pmdModelViews[1].setBasePosition( 10, 0, 10);
-      pmdModelViews[2].setBasePosition(-10, 0, 10);
-      pmdModelViews[3].setBasePosition( 20, 0, 20);
-      pmdModelViews[4].setBasePosition(-20, 0, 20);
-      break;
-    default:
-      break;
-  }
-};
 
 
