@@ -19,7 +19,10 @@ PMDView.prototype.addPMD = function (pmd) {
 };
 
 PMDView.prototype.update = function () {
-
+	var addition_frame = 1;
+	for(var i = 0, len = this.modelViews.length; i < len; i++) {
+		this.modelViews[i].update(addition_frame);
+	}
 };
 
 PMDView.prototype.draw = function () {

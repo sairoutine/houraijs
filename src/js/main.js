@@ -44,8 +44,6 @@ window.onload = function() {
 			pmd_view.addPMD(pmd);
 
 			pmd_view.run();
-
-			console.log(pmd);
 		});
 	});
 };

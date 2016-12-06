@@ -11,4 +11,9 @@ PMDModelView.prototype.setup = function () {
 
 };
 
+
+PMDModelView.prototype.update = function () {
+
+};
+
 module.exports = PMDModelView;
