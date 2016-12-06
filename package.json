@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "HouraiJS is a MikuMikuDance viewer which runs on your chrome.",
   "main": "public/js/main.js",
-  "dependencies": {},
+  "dependencies": {
+    "gl-matrix": "2.3.2"
+  },
   "devDependencies": {
     "browser-sync": "2.14.3",
     "browserify": "12.0.1",

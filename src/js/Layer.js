@@ -3,6 +3,9 @@
 
 /* WebGL layer */
 
+var glMatrix = require('gl-matrix');
+var mat4 = glMatrix.mat4;
+
 var SHADERS = {};
 
 SHADERS['shader-vs'] = {
@@ -290,6 +293,10 @@ var Layer = function(canvas) {
 	this.canvas = canvas;
 	this.gl = this._initWebGL(canvas);
 	this.shader = this._initShader(this.gl);
+
+	//var mvMatrix = mat4.create();
+	//var pMatrix = mat4.create();
+	//var mvpMatrix = mat4.create();
 };
 
 
