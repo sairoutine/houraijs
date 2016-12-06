@@ -18,25 +18,33 @@ PMDView.prototype.addPMD = function (pmd) {
 	//__setModelsBasePosition(pmd_view.modelViews);
 };
 
-PMDView.prototype.update = function () {
-	var addition_frame = 1;
+PMDView.prototype.update = function (addition_frame) {
+	if(addition_frame === 0) return;
+
 	for(var i = 0, len = this.modelViews.length; i < len; i++) {
 		this.modelViews[i].update(addition_frame);
 	}
 };
 
-PMDView.prototype.draw = function () {
+PMDView.prototype.draw = function (addition_frame) {
+	if(addition_frame === 0) return;
 
 };
 
 PMDView.prototype.run = function () {
 	var self = this;
-	self.update();
-	self.draw();
+	var addition_frame = self.calcAdditionFrame();
+
+	self.update(addition_frame);
+	self.draw(addition_frame);
 
 	self.requestID = requestAnimationFrame(self.run.bind(self));
 };
 
+
+PMDView.prototype.calcAdditionFrame = function () {
+	return 1;
+};
 /*
 PMDView.prototype.__setModelsBasePosition = function () {
 	vat pmdModelViews = this.modelViews;
