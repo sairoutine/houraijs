@@ -29,7 +29,63 @@ PMDView.prototype.update = function (addition_frame) {
 PMDView.prototype.draw = function (addition_frame) {
 	if(addition_frame === 0) return;
 
+	var layer = this.layer;
+	var gl = layer.gl;
+	var shader = layer.shader;
+
+	gl.uniform1i(shader.shadowMappingUniform, 0);
+
+
+	// set draw params
+	gl.uniform1i(shader.uSkinningTypeUniform, 2); // SKINNING_CPU_AND_GPU
+	gl.uniform1i(shader.uLightingTypeUniform, 1); // LIGHTING_ON
+	gl.uniform3fv(shader.lightColorUniform, [1.0, 1.0, 1.0]); // light color
+
+	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+	gl.uniform1i(shader.shadowGenerationUniform, 0);
+
+	gl.bindFramebuffer(gl.FRAMEBUFFER, null);
+
+	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+	for(var i = 0, len = this.modelViews.length; i < len; i++) {
+		this.modelViews[i].draw(addition_frame);
+	}
+
+	gl.flush();
 };
+
+/*
+PMDView.prototype._getCalculatedCameraParams = function(eye, center, up) {
+  this.vec3.set(this.eye, eye);
+  this.vec3.set(this.center, center);
+  this.vec3.set(this.up, up);
+  this.quat4.multiplyVec3(this.cameraQuaternion, eye, eye);
+  this.quat4.multiplyVec3(this.cameraQuaternion, up, up);
+
+  var t = [0, 0, 0];
+  this.vec3.set(this.cameraTranslation, t);
+  this.quat4.multiplyVec3(this.cameraQuaternion, t, t);
+
+  this.vec3.add(eye, t, eye);
+  this.vec3.add(center, t, center);
+
+  var d = [0, 0, 0];
+  this.vec3.subtract(eye, center, d);
+  eye[0] += d[0] * this.cameraDistance * 0.01;
+  eye[1] += d[1] * this.cameraDistance * 0.01;
+  eye[2] += d[2] * this.cameraDistance * 0.01;
+};
+
+
+*/
+
+
+
+
+
+
 
 PMDView.prototype.run = function () {
 	var self = this;
