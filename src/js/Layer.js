@@ -294,6 +294,17 @@ var Layer = function(canvas) {
 	this.gl = this._initWebGL(canvas);
 	this.shader = this._initShader(this.gl);
 
+	/*
+	 * Model Matrix: as known as World Matrix
+	 *   for model's position, rotate, and scale
+	 *
+	 * View Matrix:
+	 *   for camera's position, look-at point, and etc...
+	 *
+	 * Projection Matrix:
+	 *   for screen aspect, perspective, and etc...
+	 */
+
 	this.mvMatrix = mat4.create(); // model and view matrix
 	this.pMatrix = mat4.create(); // projection matrix
 	//var mvpMatrix = mat4.create();
