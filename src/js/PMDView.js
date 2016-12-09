@@ -1,5 +1,8 @@
 'use strict';
 
+var glMatrix = require('gl-matrix');
+var vec3 = glMatrix.vec3;
+
 var PMDModelView = require('./PMDModelView');
 
 var PMDView = function(layer) {
@@ -35,6 +38,17 @@ PMDView.prototype.draw = function (addition_frame) {
 
 	gl.uniform1i(shader.shadowMappingUniform, 0);
 
+	// set camera params
+	layer.viewport();
+	layer.perspective(60); // camera angle
+
+	layer.identity();
+
+	var eye = [0, 0, 0];
+	var center = [0, 0, 0];
+	var up = [0, 0, 0];
+	//this._getCalculatedCameraParams(eye, center, up);
+	layer.lookAt(eye, center, up);
 
 	// set draw params
 	gl.uniform1i(shader.uSkinningTypeUniform, 2); // SKINNING_CPU_AND_GPU
@@ -55,7 +69,6 @@ PMDView.prototype.draw = function (addition_frame) {
 
 	gl.flush();
 };
-
 /*
 PMDView.prototype._getCalculatedCameraParams = function(eye, center, up) {
   this.vec3.set(this.eye, eye);
@@ -77,8 +90,6 @@ PMDView.prototype._getCalculatedCameraParams = function(eye, center, up) {
   eye[1] += d[1] * this.cameraDistance * 0.01;
   eye[2] += d[2] * this.cameraDistance * 0.01;
 };
-
-
 */
 
 
