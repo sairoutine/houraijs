@@ -294,8 +294,8 @@ var Layer = function(canvas) {
 	this.gl = this._initWebGL(canvas);
 	this.shader = this._initShader(this.gl);
 
-	//var mvMatrix = mat4.create();
-	//var pMatrix = mat4.create();
+	this.mvMatrix = mat4.create(); // model and view matrix
+	this.pMatrix = mat4.create(); // projection matrix
 	//var mvpMatrix = mat4.create();
 };
 
@@ -480,6 +480,29 @@ Layer.prototype._compileShader = function(gl, source, type) {
 	}
 	return shader;
 };
+
+Layer.prototype.viewport = function() {
+	this.gl.viewport(0, 0, this.gl.viewportWidth, this.gl.viewportHeight);
+};
+
+Layer.prototype.perspective = function(angle) {
+	var viewNear = 0.1;
+	var viewFar = 2000.0;
+
+
+	mat4.perspective(this.pMatrix, angle, this.gl.viewportWidth / this.gl.viewportHeight, viewNear, viewFar);
+	//pMatrix[0] *= -1;
+};
+
+Layer.prototype.identity = function() {
+	mat4.identity(this.mvMatrix);
+};
+
+Layer.prototype.lookAt = function(eye, center, up) {
+	mat4.lookAt(eye, center, up, this.mvMatrix);
+};
+
+
 
 
 
