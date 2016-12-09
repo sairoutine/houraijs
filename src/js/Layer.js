@@ -509,6 +509,11 @@ Layer.prototype.identity = function() {
 	mat4.identity(this.mvMatrix);
 };
 
+/*
+ * eye: camera's position
+ * center: look-at point
+ * up: camera's up vector
+*/
 Layer.prototype.lookAt = function(eye, center, up) {
 	mat4.lookAt(eye, center, up, this.mvMatrix);
 };
